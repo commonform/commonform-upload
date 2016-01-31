@@ -8,8 +8,7 @@ function upload(form, callback) {
     host: 'api.commonform.org',
     path: '/forms' }
   https.request(request, function(response) {
-    var status = response.statusCode
-    if (status === 200 || status === 201) {
+    if (response.statusCode === 201) {
       callback(null, response.headers.location) }
     else {
       callback(
